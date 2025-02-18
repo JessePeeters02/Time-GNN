@@ -1,13 +1,17 @@
 import torch
 from torch.utils.data import Dataset, DataLoader
 import pandas as pd 
+import os
+
+#relative path set-up
+base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Huidige scriptmap
 
 dataset_loc = {
-    "electricity" : "datasets/ECL.csv",
-    "solar" : "datasets/solar_AL.txt",
-    "traffic" : "datasets/traffic.txt", 
-    "exchange" : "datasets/exchange_rate.txt", 
-    "weather" : "datasets/WTH.csv",
+    "electricity" : os.path.join(base_path, "datasets", "ECL.csv"),
+    "solar" : os.path.join(base_path, "datasets", "solar_AL.txt"),
+    "traffic" : os.path.join(base_path, "datasets", "traffic.txt"), 
+    "exchange" : os.path.join(base_path, "datasets", "exchange_rate.txt"), 
+    "weather" : os.path.join(base_path, "datasets", "WTH.csv")
 }
 
 #number of variables in the time series 

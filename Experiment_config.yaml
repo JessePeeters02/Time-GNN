@@ -1,4 +1,4 @@
-dataset: exchange
+dataset: weather #exchange
 features: multi
 seq_len: 96
 horizon: 1

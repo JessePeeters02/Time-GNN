@@ -13,9 +13,12 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 from models.TimeMTGNN import TimeMTGNN
 
+#relative path set-up
+base_path = os.path.dirname(os.path.abspath(__file__))  # Huidige scriptmap
+
 #load experiment configs
-with open('Experiment_config.yaml', 'r') as f:
-    config = list(yaml.load_all(f))[0]
+with open(os.path.join(base_path, 'Experiment_config.yaml'), 'r') as f:
+    config = list(yaml.load_all(f, Loader=yaml.SafeLoader))[0]
     
 def train(model, model_type = ""):
     model.train()
