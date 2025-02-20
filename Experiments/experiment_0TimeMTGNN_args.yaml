@@ -1,0 +1,25 @@
+gcn_true: true
+build_adj: true
+gcn_depth: 2
+kernel_set:
+- 2
+- 3
+- 6
+- 7
+kernel_size: 7
+dropout: 0.3
+node_dim: 40
+dilation_exponential: 2
+conv_channels: 8
+residual_channels: 8
+skip_channels: 16
+end_channels: 32
+seq_length: 96
+in_dim: 1
+out_dim: 1
+num_nodes: 12
+subgraph_size: 20
+layers: 5
+propalpha: 0.05
+tanhalpha: 3
+layer_norm_affline: false

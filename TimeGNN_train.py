@@ -85,7 +85,7 @@ def test(test_loader, load_state = True, model_loc = "", return_graphs = False):
 
 #Recording args
 model_type = "TimeGNN"
-output_dir = config["output_dir"]
+output_dir = os.path.join(os.getcwd(), "Time-GNN", "Experiments")
 experiment_number = None #Leave as None to autogenerate a new folder. Change to write into a specific folder
 save_dir, model_dir = create_directories(model_type, output_dir, experiment_number)
 print(save_dir)

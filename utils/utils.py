@@ -132,9 +132,12 @@ def create_directories(model_type, output_dir, experiment_number = None):
     if experiment_number is None:
         experiment_number = get_experiment_number(output_dir)
         
-    experiment_dir = "experiment_" + str(experiment_number) + "/"
-    save_dir = output_dir + experiment_dir
-    model_dir = save_dir + model_type + "_models/"
+    # experiment_dir = "/" + "experiment_" + str(experiment_number) + "/"
+    # save_dir = output_dir + experiment_dir
+    # model_dir = save_dir + model_type + "_models/"
+    experiment_dir = f"experiment_{experiment_number}"
+    save_dir = os.path.join(output_dir, experiment_dir)
+    model_dir = os.path.join(save_dir, f"{model_type}_models")
 
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
