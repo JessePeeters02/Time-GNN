@@ -1,4 +1,4 @@
-dataset: weather #exchange
+dataset: NASDAQ #weather #exchange
 features: multi
 seq_len: 96
 horizon: 1
