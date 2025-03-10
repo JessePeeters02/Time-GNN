@@ -8,6 +8,7 @@ base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Huidi
 
 dataset_loc = {
     "electricity" : os.path.join(base_path, "datasets", "ECL.csv"),
+    "electricity" : os.path.join(base_path, "datasets", "ECL.csv"),
     "solar" : os.path.join(base_path, "datasets", "solar_AL.txt"),
     "traffic" : os.path.join(base_path, "datasets", "traffic.txt"), 
     "exchange" : os.path.join(base_path, "datasets", "exchange_rate.txt"), 
