@@ -7,7 +7,7 @@ import os
 base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Huidige scriptmap
 
 dataset_loc = {
-    "NASDAQ" : os.path.join(os.path.dirname(base_path), "portfolio_construction", "data", "NASDAQ_data"),
+    "NASDAQ" : os.path.join(base_path, "datasets", "NASDAQ.csv"),
     "electricity" : os.path.join(base_path, "datasets", "ECL.csv"),
     "solar" : os.path.join(base_path, "datasets", "solar_AL.txt"),
     "traffic" : os.path.join(base_path, "datasets", "traffic.txt"), 
