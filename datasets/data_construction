@@ -9,7 +9,7 @@ all_files = [f for f in os.listdir(input_folder) if f.endswith('.csv')]
 # #test
 # print(all_files) 
 # all_files = all_files[:10] #eerste 10 files
-# print(all_files)
+# print(all_files) 
 
 transformed_data = []
 file_counter = 0
