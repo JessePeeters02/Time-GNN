@@ -5,10 +5,20 @@ input_folder = os.path.join(os.getcwd(), "portfolio_construction", "data", "NASD
 output_file = os.path.join(os.getcwd(), "Time-GNN", "datasets", "NASDAQ.csv")
 
 all_files = [f for f in os.listdir(input_folder) if f.endswith('.csv')]
-        
+
+# #test
+# print(all_files) 
+# all_files = all_files[:10] #eerste 10 files
+# print(all_files)
+
 transformed_data = []
+file_counter = 0
+total_files = len(all_files)
         
 for file in all_files:
+    file_counter += 1
+    print("voortgang: ", file_counter/total_files*100, "%")
+
     file_path = os.path.join(input_folder, file)
     name = os.path.splitext(file)[0]  # Bestandsnaam zonder extensie als kolomnaam
             
