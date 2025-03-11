@@ -1,0 +1,46 @@
+import os
+import pandas as pd
+
+
+
+"""
+Leest alle CSV-bestanden in de map, transformeert ze en slaat het resultaat op in een samengevoegde CSV.
+:param input_folder: Pad naar de map met de CSV-bestanden.
+:param output_file: Pad naar het uiteindelijke CSV-bestand.
+"""
+all_files = [f for f in os.listdir(input_folder) if f.endswith('.csv')]
+        
+transformed_data = []
+        
+for file in all_files:
+    file_path = os.path.join(input_folder, file)
+    name = os.path.splitext(file)[0]  # Bestandsnaam zonder extensie als kolomnaam
+            
+    try:
+        df = pd.read_csv(file_path, usecols=['Date', 'Open', 'Close'])
+        df_melted = df.melt(id_vars=['Date'], var_name='Type', value_name=name)
+        transformed_data.append(df_melted)
+    except Exception as e:
+        print(f"Fout bij verwerken van {file}: {e}")
+        
+    if not transformed_data:
+        print("Geen bruikbare bestanden gevonden.")
+            return
+        
+        merged_df = transformed_data[0]
+        for df in transformed_data[1:]:
+            merged_df = merged_df.merge(df, on=['Date', 'Type'], how='outer')
+        
+        merged_df['Date'] = pd.to_datetime(merged_df['Date'])
+        merged_df = merged_df.sort_values(by=['Date', 'Type'])
+        
+        merged_df.iloc[:, 2:] = merged_df.iloc[:, 2:].applymap(lambda x: str(x).replace('.', ',') if pd.notnull(x) else '')
+        
+        merged_df.to_csv(output_file, index=False, sep=';')
+        print(f"Samengevoegd bestand opgeslagen als: {output_file}")
+    
+    # Voorbeeldgebruik
+    # merge_stock_csvs("/pad/naar/csv_map", "output.csv")
+
+# Voorbeeldgebruik
+# merge_stock_csvs("/pad/naar/csv_map", "output.csv")

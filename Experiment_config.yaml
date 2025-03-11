@@ -1,9 +1,19 @@
-dataset: NASDAQ #weather #exchange
+dataset: NASDAQ
 features: multi
-seq_len: 96
-horizon: 1
+seq_len: 28
+horizon: 14
 cut: null
 runs: 2
-n_epochs: 50
-val_interval: 1
+n_epochs: 60
+val_interval: 10
 output_dir: outputs/
+
+# dataset: weather #exchange
+# features: multi
+# seq_len: 96
+# horizon: 1
+# cut: null
+# runs: 2
+# n_epochs: 50
+# val_interval: 1
+# output_dir: outputs/

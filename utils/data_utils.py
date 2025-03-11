@@ -17,6 +17,7 @@ dataset_loc = {
 
 #number of variables in the time series 
 dataset_dims = {
+    "NASDAQ" : 3568,
     "electricity" : 321,
     "weather" : 12,
     "exchange" : 8,
