@@ -25,7 +25,7 @@ for file in all_files:
         
     if not transformed_data:
         print("Geen bruikbare bestanden gevonden.")
-            return
+        return
         
         merged_df = transformed_data[0]
         for df in transformed_data[1:]:
